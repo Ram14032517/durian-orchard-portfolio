@@ -1,0 +1,80 @@
+{
+  "created_utc": "2026-09-28T11:50:38.151798+00:00",
+  "purpose": "Retrospective monthly province-level production baseline; not tree health or causal effects",
+  "rows": 2745,
+  "eligible_rows": 748,
+  "eligible_by_split": {
+    "train": 602,
+    "validation": 71,
+    "test": 75,
+    "future_holdout": 0
+  },
+  "feature_allowlist": [
+    "province_code",
+    "month",
+    "lag1_temperature_c",
+    "lag1_rain_mm",
+    "lag1_humidity_pct",
+    "lag1_solar_mj_m2_day"
+  ],
+  "target": "target_production_tonnes",
+  "grain": "one province and target calendar month; all durian varieties",
+  "source_urls": [
+    "https://power.larc.nasa.gov/docs/services/api/temporal/daily/",
+    "https://catalog.oae.go.th/dataset/durian_product_month",
+    "https://catalog.oae.go.th/dataset/durian_product"
+  ],
+  "limitations": [
+    "Not a point-in-time backtest: source publication latency and revisions unknown",
+    "All four lag weather fields checked against daily values and require full-month coverage",
+    "Unreported harvest months remain missing, not zero; seasonal selection bias remains",
+    "No local sensor, disease, fruit-drop or soil-to-yield labels included"
+  ],
+  "inputs": [
+    {
+      "path": "weather_monthly.csv",
+      "bytes": 366746,
+      "sha256": "25b349c50fbd9e24443d39a137338ef5c4fc2d2fc1d8b090eced6916e012d4bd"
+    },
+    {
+      "path": "harvest_monthly.csv",
+      "bytes": 13588,
+      "sha256": "a1a04a1bcd4e37d1640a76a3fb733221563fcb5b00a43f6ce2046760bff7f739"
+    },
+    {
+      "path": "reference_points.csv",
+      "bytes": 306,
+      "sha256": "332e5b3be9bdc10aa29d46947641cdc1a5e6848a280303e1142ae9bf5b217b76"
+    },
+    {
+      "path": "weather_daily.csv",
+      "bytes": 4502172,
+      "sha256": "28dfcab00a24086735a7a8b596a19c52334a5025a7c3abb0297ff2a663d21054"
+    },
+    {
+      "path": "production_annual.csv",
+      "bytes": 27865,
+      "sha256": "c5eed63bddcb777afcbf4bb04e9f25cccdbf08d758636136a96730c884655b73"
+    },
+    {
+      "path": "soil_properties_by_district.csv",
+      "bytes": 890573,
+      "sha256": "84713a26b3aac688f4829eed607abf61244740589da123f395c355ca54cd84c5"
+    },
+    {
+      "path": "phenology_evidence.json",
+      "bytes": 10003,
+      "sha256": "22b413d3af9aae696c94f09f3f97a562984058620b73d767a33e51ba548f91e6"
+    },
+    {
+      "path": "PHENOLOGY_SOURCES_TH.md",
+      "bytes": 7116,
+      "sha256": "9b45066e6ae5743cccf9ed578c49bea5631b79e2294a38b73a5c3577b2718ed1"
+    }
+  ],
+  "output": {
+    "path": "training/monthly_model_panel.csv",
+    "bytes": 434849,
+    "sha256": "6f41d1d60bbea5a0afec4582655ad4f2a3399b0b310ec8df34b63084e7634791"
+  }
+}

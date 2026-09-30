@@ -1,0 +1,121 @@
+{% macro header(this, kwargs) %}
+{% raw %}
+<style>
+html,body {margin:0;font-family:Tahoma,Arial,sans-serif;color:#171717;background:white}
+.folium-map {position:absolute!important;left:0!important;top:128px!important;width:62%!important;height:calc(100% - 128px)!important;background:#fafbf9}
+#controls {box-sizing:border-box;position:absolute;left:0;top:0;width:100%;height:128px;padding:12px 18px;border-bottom:1px solid #ddd;z-index:900;background:white}
+#controls h1 {font-size:20px;margin:0 0 6px;font-weight:600}
+#controls .sub {font-size:12px;color:#5e6462;margin-bottom:8px}
+label {font-size:13px;margin-right:10px;display:inline-block}
+select {font:inherit;padding:5px;border:1px solid #888;background:white;border-radius:3px;max-width:230px}
+#sidebar {box-sizing:border-box;position:absolute;right:0;top:128px;width:38%;height:calc(100% - 128px);overflow-y:auto;padding:14px 20px;background:white;border-left:1px solid #ddd;z-index:800;font-size:13px;line-height:1.6}
+h2 {font-size:17px;font-weight:600;margin:12px 0 6px} h3 {font-size:14px;margin:14px 0 3px}
+p {margin:6px 0}.note {font-size:12px;color:#5e6462}.warning{border-left:3px solid #9a681a;padding-left:10px}
+table {width:100%;border-collapse:collapse;font-size:12px;margin:6px 0} th,td {padding:5px 3px;text-align:right;border-bottom:1px solid #e4e7e5;vertical-align:top} th:first-child,td:first-child {text-align:left}th {font-weight:600}
+a {color:#1f6f5f} #legend {font-size:12px;background:white;padding:9px;line-height:1.6;max-width:230px}
+.swatch {display:inline-block;width:16px;height:11px;margin-right:5px;border:1px solid #aaa}
+#selection {color:#1f6f5f}.leaflet-tooltip{font-family:Tahoma,Arial,sans-serif}
+@media(max-width:760px){ #controls{height:174px;padding:10px}#controls h1{font-size:17px}#controls .sub{font-size:11px}.folium-map{top:174px!important;width:100%!important;height:480px!important}#sidebar{top:654px;width:100%;height:auto;overflow:visible;border-left:0;border-top:1px solid #ddd}body{overflow:auto!important}label{margin:3px}select{max-width:185px}}
+</style>
+{% endraw %}
+{% endmacro %}
+{% macro html(this, kwargs) %}
+<section id="controls">
+ <h1>ทุเรียนประเทศไทย · เปรียบเทียบข้อมูลจริงรายจังหวัด</h1>
+ <div class="sub">ผลวิเคราะห์จาก Jupyter | แผนที่ 77 จังหวัด · สถิติผลผลิต 67 จังหวัด · อากาศจุดอ้างอิงจังหวัด NASA · ดินซ้อนพื้นที่ทุเรียน: {{ this.soil_count }} จังหวัด</div>
+ <label>ปี พ.ศ. <select id="year" aria-label="ปีข้อมูล"></select></label>
+ <label>สีแผนที่ <select id="metric" aria-label="ตัวชี้วัดสีแผนที่"></select></label>
+ <label>พื้นที่ <select id="region" aria-label="ภาค"></select></label>
+ <label>ไปจังหวัด <select id="province" aria-label="เลือกจังหวัด"></select></label>
+</section>
+<aside id="sidebar" aria-label="รายละเอียดและเปรียบเทียบ">
+ <div id="summary"></div>
+ <h2 id="selection">เลือกจังหวัดบนแผนที่</h2><div id="details" aria-live="polite"></div>
+ <h2>เปรียบเทียบสองจังหวัด</h2>
+ <label>จังหวัด A <select id="compareA" aria-label="จังหวัด A"></select></label>
+ <label>จังหวัด B <select id="compareB" aria-label="จังหวัด B"></select></label>
+ <div id="comparison"></div>
+ <h3>แหล่งที่มา / อ่านก่อนตีความ</h3>
+ <p class="note"><a href="https://catalog.oae.go.th/dataset/durian_product" target="_blank" rel="noopener">ผลผลิต: สศก.</a> (ไฟล์ปี 2540–2568; ไม่แยกพันธุ์หมอนทอง)<br>
+ <a href="https://power.larc.nasa.gov/docs/methodology/meteorology/" target="_blank" rel="noopener">อากาศ: NASA POWER</a> ปี 2564–2568; 1 จุดอ้างอิงต่อจังหวัด อ่านค่ากริด ไม่ใช่ค่าเฉลี่ยทั้งจังหวัดหรือค่าจากสวน<br>
+ <a href="https://gistdaportal.gistda.or.th/arcgis/rest/services/ข้อมูลเขตการปกครอง/MapServer/2" target="_blank" rel="noopener">ขอบเขต: GISTDA</a>; ภาคใช้ DPM REGION_6 และเติมสตูลเป็นภาคใต้ ไม่ใช่ภาคตามตาราง สศก.<br>
+ <a href="https://lddcatalog.ldd.go.th/dataset/ldd_11_01" target="_blank" rel="noopener">ดิน: กรมพัฒนาที่ดิน</a> ปีผลิต 2561 × การใช้ที่ดินต่างปี ระบุในรายละเอียดจังหวัด<br>ดาวน์โหลด 17–18 ก.ย. 2569 · ไฟล์นี้เปิดออฟไลน์ได้ ไม่มีการส่งข้อมูลสวน<br>อากาศแบบจุดใน A403 ถ่วงพื้นที่ 20 ปีและการเปรียบเทียบวิธี ดู notebook 03 ในโฟลเดอร์ notebooks; แผนที่นี้ยังใช้วิธีจุดอ้างอิงเดิม</p>
+ <p class="note warning">สีเทา = ไม่มีระเบียน ไม่ใช่ศูนย์ · ค่าผลผลิตของทั้งจังหวัดไม่ใช่ผลผลิตของแต่ละชุดดิน · ความสัมพันธ์ของอากาศกับผลผลิตยังไม่พิสูจน์เหตุและผล · ยังไม่ใช่โมเดลคาดการณ์หรือระบบสั่งให้น้ำ</p>
+</aside>
+{% endmacro %}
+{% macro script(this, kwargs) %}
+const rows = {{ this.rows | tojson }};
+const provinces = {{ this.provinces | tojson }};
+const soil = {{ this.soil | tojson }};
+const metrics = {{ this.metrics | tojson }};
+const map = {{ this.map_name }};
+const geo = {{ this.geo_name }};
+const byKey = new Map(rows.map(r => [r.province_code+'-'+r.year_ce, r]));
+const el = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = (v,d=0) => (v===null || v===undefined || !Number.isFinite(+v)) ? '—' : Number(v).toLocaleString('th-TH',{maximumFractionDigits:d,minimumFractionDigits:d});
+const opt = (s,v,t) => {const o=document.createElement('option');o.value=v;o.textContent=t;s.appendChild(o)};
+[2025,2024,2023,2022,2021].forEach(y=>opt(el('year'),y,y+543));
+Object.entries(metrics).forEach(([k,v])=>opt(el('metric'),k,v.label));
+el('metric').value='yield_kg_per_rai_source';
+opt(el('region'),'all','ประเทศไทยรวม');[...new Set(provinces.map(p=>p.region))].sort().forEach(r=>opt(el('region'),r,r));
+for (const p of [...provinces].sort((a,b)=>a.province_name.localeCompare(b.province_name,'th'))) {
+ for (const id of ['province','compareA','compareB']) opt(el(id),p.province_code,p.province_name);
+}
+el('province').value='22';el('compareA').value='22';el('compareB').value='86';
+let selected='22';
+const rec = code => byKey.get(code+'-'+el('year').value);
+const colors = ['#edf3f0','#c5dcd3','#8cbba9','#4b9279','#1f6f5f'];
+function color(v,m) {if(v===null || v===undefined)return '#d4d5d2';return colors[Math.max(0,Math.min(4,Math.floor((v-m.min)/(m.max-m.min)*5)))];}
+function detail(code) {
+ const r=rec(code); if(!r)return;selected=code;el('province').value=code;el('selection').textContent=r.province_name+' · '+r.region;
+ let html='<table><tbody>';
+ for (const [key,metric] of Object.entries(metrics)) html+='<tr><td>'+esc(metric.label)+'</td><td>'+fmt(r[key],metric.decimals)+'</td></tr>';
+ html+='<tr><td>เนื้อที่ให้ผล (ไร่)</td><td>'+fmt(r.bearing_rai)+'</td></tr></tbody></table>';
+ html+='<p class="note">อากาศปี '+(+r.year_ce+543)+' ครบ '+fmt(r.complete_weather_months)+'/12 เดือน<br>จุดอ้างอิง '+fmt(r.weather_latitude,5)+', '+fmt(r.weather_longitude,5)+' ไม่ใช่พิกัดสวน</p>';
+ if(soil[code]) {
+  const evidence=soil[code];
+  html+='<h3>หน่วยดินที่พบใต้พื้นที่ A403 มากที่สุด</h3><table><tr><th>ชื่อ / รหัส</th><th>พื้นที่ (ไร่)</th></tr>';
+  for(const s of evidence.top) html+='<tr><td>'+esc(s.name)+' ('+esc(s.code)+')</td><td>'+fmt(s.rai)+'</td></tr>';
+  html+='</table><p class="note">A403 ตรงตัว '+fmt(evidence.total)+' ไร่; รหัสผสมทั้ง polygon '+fmt(evidence.mixed)+' ไร่ (ไม่ใช่พื้นที่ทุเรียนล้วน)<br>ไม่ใช่เนื้อที่ให้ผล สศก. หรืออันดับความเหมาะสม · SC เป็นพื้นที่ลาดชันเชิงซ้อน ไม่ใช่ชุดดินเฉพาะ<br>ดินปีผลิต '+evidence.soil_year+' × การใช้ที่ดิน '+evidence.lu_year+' คงที่ ไม่เปลี่ยนตามปุ่มปีผลผลิต</p>';
+ } else html+='<p class="warning">ชุดดินใต้พื้นที่ทุเรียน: ยังไม่ประมวลผลจังหวัดนี้ ไม่ได้หมายความว่าไม่มีดินหรือไม่มีสวน</p>';
+ el('details').innerHTML=html;
+}
+function compare() {
+ const a=rec(el('compareA').value),b=rec(el('compareB').value);
+ let html='<table><thead><tr><th>ตัวชี้วัด</th><th>'+esc(a.province_name)+'</th><th>'+esc(b.province_name)+'</th></tr></thead><tbody>';
+ for(const [key,m] of Object.entries(metrics))html+='<tr><td>'+esc(m.label)+'</td><td>'+fmt(a[key],m.decimals)+'</td><td>'+fmt(b[key],m.decimals)+'</td></tr>';
+ html+='<tr><td>ดินซ้อนพื้นที่ทุเรียน</td><td>'+(a.soil_overlay_available?'มีผลนำร่อง':'ยังไม่คำนวณ')+'</td><td>'+(b.soil_overlay_available?'มีผลนำร่อง':'ยังไม่คำนวณ')+'</td></tr>';
+ el('comparison').innerHTML=html+'</tbody></table>';
+}
+const legend = L.control({position:'bottomleft'});legend.onAdd=()=>{const div=L.DomUtil.create('div');div.id='legend';L.DomEvent.disableClickPropagation(div);return div};legend.addTo(map);
+function update(fit=false){
+ const year=+el('year').value,key=el('metric').value,m=metrics[key],region=el('region').value;
+ const subset=rows.filter(r=>r.year_ce===year&&(region==='all'||r.region===region));
+ const measured=subset.filter(r=>r.production_tonnes!==null);
+ const tonnes=measured.reduce((s,r)=>s+r.production_tonnes,0),rai=measured.reduce((s,r)=>s+r.bearing_rai,0);
+ const meanWeather=k=>{const vs=subset.filter(r=>r[k]!==null);return vs.length?vs.reduce((s,r)=>s+r[k],0)/vs.length:null};
+ el('summary').innerHTML='<h2>'+esc(region==='all'?'ประเทศไทย · รวมจังหวัดที่มีข้อมูล':region)+' / '+(year+543)+'</h2><p>ผลผลิต <strong>'+fmt(tonnes)+' ตัน</strong> · '+measured.length+'/'+subset.length+' จังหวัดมีระเบียน<br>ผลผลิตต่อไร่แบบถ่วงเนื้อที่ให้ผล <strong>'+fmt(rai>0?tonnes*1000/rai:null)+' กก./ไร่</strong></p><p class="note">อากาศเฉลี่ยของจุดอ้างอิงจังหวัดที่เลือก: '+fmt(meanWeather('temperature_c'),1)+' °C · ฝน '+fmt(meanWeather('rain_mm_year'))+' มม./ปี<br>เป็นค่าเฉลี่ยจุดแบบน้ำหนักเท่ากัน ไม่ใช่ค่าเฉลี่ยเชิงพื้นที่ของภาค/ประเทศ</p>';
+ geo.eachLayer(layer=>{const r=rec(layer.feature.properties.province_code),active=region==='all'||r.region===region;
+ layer.setStyle({fillColor:color(r[key],m),fillOpacity:active?0.9:0.10,color:'#7c8882',weight:active?0.7:0.25});
+ layer.unbindTooltip();layer.bindTooltip(esc(r.province_name)+' · '+fmt(r[key],m.decimals)+' '+esc(m.short));
+ });
+ let lg='<strong>'+esc(m.label)+'</strong><br>';
+ for(let i=0;i<5;i++){let lo=m.min+(m.max-m.min)*i/5,hi=m.min+(m.max-m.min)*(i+1)/5;lg+='<span class="swatch" style="background:'+colors[i]+'"></span>'+fmt(lo,m.legend_decimals)+'–'+fmt(hi,m.legend_decimals)+'<br>'}
+ el('legend').innerHTML=lg+'<span class="swatch" style="background:#d4d5d2"></span>ไม่มีข้อมูล<br><small>ช่วงสีคงที่ทุกปี</small>';
+ if(fit){const layers=[];geo.eachLayer(l=>{if(region==='all'||l.feature.properties.region===region)layers.push(l)});map.fitBounds(L.featureGroup(layers).getBounds(),{padding:[20,20]})}
+ detail(selected);compare();
+}
+geo.eachLayer(layer=>{
+ const choose=()=>{detail(layer.feature.properties.province_code);el('compareA').value=selected;compare()};
+ layer.on('click',choose);
+ const node=layer.getElement();
+ if(node){node.setAttribute('role','button');node.setAttribute('tabindex','0');node.setAttribute('aria-label','ดูจังหวัด'+layer.feature.properties.province_name);node.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose()}})}
+});
+el('year').addEventListener('change',()=>update());el('metric').addEventListener('change',()=>update());
+el('region').addEventListener('change',()=>update(true));
+el('province').addEventListener('change',()=>{selected=el('province').value;geo.eachLayer(l=>{if(l.feature.properties.province_code===selected)map.fitBounds(l.getBounds(),{padding:[35,35],maxZoom:9})});detail(selected);el('compareA').value=selected;compare()});
+for(const id of ['compareA','compareB'])el(id).addEventListener('change',compare);
+update(true);
+window.durianAnalysis = {rowCount:rows.length,provinceCount:provinces.length,selectProvince:detail};
+{% endmacro %}

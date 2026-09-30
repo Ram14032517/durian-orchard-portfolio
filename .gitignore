@@ -1,0 +1,15 @@
+.venv*/
+.build/
+.secrets/
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+.env
+.env.*
+data/
+receiver_gateway/*_secret.h
+wifi_range_test/*_secret.h
+research_data/five_province_history/point_weather_cache/
+research_data/five_province_history/exports/
+research_data/five_province_history/training/training_bundle.zip
+PORTFOLIO_QA_PRIVATE.json

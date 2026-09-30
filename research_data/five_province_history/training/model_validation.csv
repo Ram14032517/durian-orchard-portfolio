@@ -1,0 +1,7 @@
+﻿model,alpha,validation_mae_tonnes
+ridge_season,1.0,17870.73076894113
+ridge_season,10.0,17866.534285906386
+ridge_season,100.0,18127.50457568664
+ridge_weather,1.0,17994.188854769658
+ridge_weather,10.0,18006.187974500426
+ridge_weather,100.0,18148.581669852887

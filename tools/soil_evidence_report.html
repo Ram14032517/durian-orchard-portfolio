@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ชุดดินกับพื้นที่ทุเรียน จันทบุรี — ข้อมูลและหลักฐาน</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f7f4;color:#193328;font-family:"Leelawadee UI",Tahoma,sans-serif;line-height:1.65}main{max-width:1160px;margin:auto;padding:36px 28px}h1{font-size:30px;line-height:1.3;margin:8px 0 12px}h2{font-size:21px;margin:26px 0 12px}h3{font-size:17px;margin:0 0 8px}p{margin:8px 0 16px}a{color:#165faa;overflow-wrap:anywhere}header{border-bottom:1px solid #b6c6bb;padding-bottom:20px}.eyebrow{letter-spacing:1px;font-size:12px;color:#466d59}.subtitle{max-width:850px}.notice{background:#fff2d8;border-left:4px solid #bc770c;padding:12px 16px;margin:20px 0}.metrics{display:flex;gap:24px;flex-wrap:wrap;margin:24px 0}.metric{flex:1;min-width:200px}.metric strong{display:block;font-size:28px}.muted{color:#50685b;font-size:13px}.mapgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.map{width:100%;height:470px;border:1px solid #becbc2;background:#fff}.map path{vector-effect:non-scaling-stroke}.legend{display:flex;flex-wrap:wrap;gap:10px 20px;margin:10px 0;font-size:13px}.legend span{display:flex;align-items:center;gap:6px}.swatch{width:12px;height:12px;display:inline-block}.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:18px 0}select,button{font:inherit;padding:7px 10px;border:1px solid #9cad9f;border-radius:4px;background:#fff;color:#193328;max-width:100%}button{cursor:pointer}.detail{padding:12px 0;min-height:64px}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:9px 12px;text-align:left;border-bottom:1px solid #d4ded6;vertical-align:top}th{background:#e6eee8}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}.source{overflow-wrap:anywhere}code{font-size:12px;overflow-wrap:anywhere}details{margin:18px 0}summary{cursor:pointer;font-weight:600}.foot{border-top:1px solid #b6c6bb;padding-top:20px;margin-top:32px;font-size:13px}svg text{font-family:inherit}#bars{width:100%;height:340px}#mapdetail{aria-live:polite}@media(max-width:720px){main{padding:20px 14px}h1{font-size:24px}.mapgrid{grid-template-columns:1fr}.map{height:410px}.metrics{gap:12px}.metric{min-width:145px}.metric strong{font-size:23px}th,td{padding:8px}#bars{height:360px}}@media print{body{background:#fff}main{padding:0}.controls,button{display:none}.map{height:380px}details{display:block}a{color:#193328}h2{break-after:avoid}.mapgrid{break-inside:avoid}}
+</style>
+</head>
+<body><main>
+<header><div class="eyebrow">DURIAN ORCHARD DATA PLATFORM · หลักฐานเชิงพื้นที่</div>
+<h1>ทุเรียนจันทบุรีอยู่บนชุดดินอะไร?</h1>
+<p class="subtitle">ตัวอย่างการซ้อนแผนที่จริงจากกรมพัฒนาที่ดิน: ข้อมูลชุดดินปีผลิต 2561 กับไฟล์การใช้ที่ดินปี 2568 ไม่ใช่ข้อมูลจำลอง และยังไม่ใช่ผลวิเคราะห์ทั่วประเทศ</p>
+<div class="muted">ดาวน์โหลด 17 กันยายน 2569 · มาตราส่วนต้นทาง 1:25,000 · เปิดดูในเครื่องได้โดยไม่ต้องล็อกอิน</div>
+</header>
+<div class="notice"><strong>อ่านอย่างไร:</strong> สีแสดงหน่วยดิน ไม่ใช่ระดับความเหมาะสมหรือสุขภาพต้นทุเรียน ปีของสองชั้นข้อมูลต่างกัน และพื้นที่ตามแผนที่ไม่ใช่ขอบเขตกรรมสิทธิ์สวน</div>
+<section class="metrics" id="metrics" aria-label="ขนาดข้อมูล"></section>
+<h2>เปรียบเทียบตำแหน่งเดียวกันบนสองแผนที่</h2>
+<div class="controls"><label for="soilSelect">เลือกชุดดิน/หน่วยแผนที่ </label><select id="soilSelect"><option value="all">ทุกหน่วยดิน</option></select><button id="reset" type="button">แสดงทุกหน่วยดิน</button></div>
+<div class="mapgrid">
+<section><h3>1. แผนที่ดินทั้งจังหวัด — ปีผลิต 2561</h3><svg id="soilMap" class="map" role="img" aria-label="แผนที่ชุดดินจังหวัดจันทบุรี"></svg></section>
+<section><h3>2. ดินเฉพาะพื้นที่รหัส A403 — ปี 2568</h3><svg id="cropMap" class="map" role="img" aria-label="พื้นที่ที่สำรวจเป็นทุเรียนรหัส A403 ซ้อนกับแผนที่ดิน"></svg></section>
+</div>
+<div id="legend" class="legend" aria-label="คำอธิบายสี"></div>
+<div class="muted">แผนที่ขวาแสดงเฉพาะรหัส A403 ตรงตัว ไม่รวมรหัสปลูกผสม จุดเล็กอาจมองไม่เห็นในมุมมองทั้งจังหวัด เส้นขอบลดรายละเอียดเพื่อแสดงผลเท่านั้น ตัวเลขคำนวณจากรูปทรงเต็มความละเอียด</div>
+<div id="mapdetail" class="detail" aria-live="polite"></div>
+<h2>เปรียบเทียบพื้นที่ A403 ตามหน่วยดิน</h2>
+<p class="muted">8 อันดับแรกตามพื้นที่ซ้อนทับ หน่วยดินบางรายการเป็นดินเชิงซ้อนหรือหน่วยพื้นที่พิเศษ ไม่ใช่ชุดดินเดี่ยว</p>
+<svg id="bars" role="img" aria-label="กราฟพื้นที่ทุเรียนตามหน่วยดิน 8 อันดับแรก"></svg>
+<h2>ข้อมูลดินที่ตรวจย้อนกลับได้</h2>
+<p>ชื่อ เนื้อดิน ระดับกรด–ด่าง และความอุดมสมบูรณ์คัดจากคุณลักษณะในไฟล์ต้นทาง ไม่ใช่ผลตรวจดินในสวนปัจจุบัน และไม่แปลงระดับกรด–ด่างเป็นค่า pH ตัวเลขเอง</p>
+<div class="tablewrap"><table><thead><tr><th>รหัส / ชื่อจากต้นทาง</th><th class="num">A403 (ไร่)</th><th class="num">ปลูกผสมที่มีทุเรียน (ไร่)*</th><th>เนื้อดินชั้นบน</th><th>ระดับกรด–ด่างชั้นบน</th></tr></thead><tbody id="soilTable"></tbody></table></div>
+<p class="muted">* พื้นที่ปลูกผสมเป็นพื้นที่รวมของรูปแปลงที่มีทุเรียนร่วมกับพืชอื่น ไม่ใช่พื้นที่ทุเรียนล้วน จึงไม่บวกคอลัมน์นี้เข้าไปเป็นยอดพื้นที่ทุเรียน</p>
+<h2>ข้อมูลจริงหรือไม่ และมาจากไหน?</h2>
+<div class="tablewrap"><table><thead><tr><th>สิ่งที่แสดง</th><th>หลักฐาน / ต้นทาง</th><th>สิ่งที่ยังสรุปไม่ได้</th></tr></thead><tbody>
+<tr><td>ชุดดินและสมบัติดิน</td><td><a href="https://lddcatalog.ldd.go.th/dataset/ldd_11_01" target="_blank" rel="noopener">บัญชีข้อมูลชุดดิน กรมพัฒนาที่ดิน</a><br><a href="https://tswc.ldd.go.th/DownloadGIS/web_Soil/SoilSeries/E/sr_cti.rar">ไฟล์ต้นฉบับจันทบุรี sr_cti.rar</a><br>ปีผลิต 2561 ระบุใน 00_ReadMe.txt ภายในไฟล์ ไม่ใช่ปีที่ดาวน์โหลด</td><td>ไม่ใช่ค่าความชื้น/pH รายวัน ไม่ยืนยันดินทุกจุดในแปลง</td></tr>
+<tr><td>พื้นที่สำรวจว่าปลูกทุเรียน</td><td><a href="https://lddcatalog.ldd.go.th/dataset/ldd_21_01" target="_blank" rel="noopener">บัญชีข้อมูลการใช้ที่ดิน กรมพัฒนาที่ดิน</a><br><a href="https://tswc.ldd.go.th/DownloadGIS/web_LU/DataLu/E/Landuse_cti.zip">ไฟล์ต้นฉบับจันทบุรี Landuse_cti.zip</a><br>ชื่อชั้นข้อมูล LU_CTI_2568 และคำอธิบาย LU_DES_TH ในไฟล์<br><a href="https://e-library.ldd.go.th/library/flip/bib9971f/files/basic-html/page91.html" target="_blank" rel="noopener">ตารางรหัส A403 = ทุเรียน</a></td><td>ไม่ระบุว่าทั้งหมดเป็นหมอนทอง ไม่ยืนยันสภาพปี 2569 ไม่ใช่จำนวนต้นหรือสวน</td></tr>
+<tr><td>พื้นที่ทุเรียนแยกตามหน่วยดิน</td><td>ผลคำนวณของโปรเจกต์นี้ จากการตัดส่วนซ้อนทับของสองแผนที่ใน EPSG:32647 แล้วหารพื้นที่ตารางเมตรด้วย 1,600</td><td>ไม่ใช่ตารางผลสรุปที่กรมฯ เผยแพร่โดยตรง และยังใช้พิสูจน์ว่าดินใดให้ผลผลิตดีกว่าไม่ได้</td></tr>
+</tbody></table></div>
+<h2>คุณภาพและข้อจำกัดที่พบ</h2><ul id="checks"></ul>
+<details><summary>ดูค่า SHA-256 สำหรับตรวจไฟล์ต้นฉบับ</summary><div id="hashes" class="source"></div><p class="muted">ค่าแฮชใช้ตรวจว่าไฟล์ที่วิเคราะห์เป็นไฟล์เดิม ไม่ได้ยืนยันว่าทุกค่าในข้อมูลสำรวจถูกต้อง</p></details>
+<details><summary>รหัสปลูกผสมและจำนวนรูปแปลงในต้นทาง</summary><div class="tablewrap"><table><thead><tr><th>รหัส</th><th>คำอธิบายต้นทาง</th><th class="num">จำนวนรูปแปลง</th><th class="num">พื้นที่คำนวณ (ไร่)</th></tr></thead><tbody id="codes"></tbody></table></div></details>
+<div class="foot"><strong>สถานะ:</strong> ตัวอย่างวิเคราะห์ภายในเครื่อง ยังไม่เผยแพร่บนเว็บหรือ GitHub<br>หน้าชุดข้อมูลทั้งสองระบุ Creative Commons Attribution Non-Commercial No-Derivs ควรตรวจสิทธิ์/ขอคำยืนยันจากเจ้าของก่อนเผยแพร่ข้อมูลที่แปลงหรือรวมแล้ว<br>ใช้รายงานนี้คุยกับอาจารย์เรื่องวิธีเชื่อมข้อมูลและข้อจำกัด ไม่ใช้ตัดสินใจให้น้ำหรือประเมินสุขภาพต้นทุเรียนจากแผนที่เพียงอย่างเดียว</div>
+</main>
+<script>/*__D3__*/</script>
+<script id="analysisData" type="application/json">__ANALYSIS_JSON__</script>
+<script id="geometryData" type="application/json">__GEOMETRY_JSON__</script>
+<script>
+const DATA=JSON.parse(document.getElementById('analysisData').textContent);
+const MAPS=JSON.parse(document.getElementById('geometryData').textContent);
+const fmt=n=>n.toLocaleString('th-TH',{maximumFractionDigits:1});
+const pct=n=>n.toLocaleString('th-TH',{minimumFractionDigits:3,maximumFractionDigits:3});
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const topCodes=DATA.soil_stats.slice(0,6).map(r=>r.code);
+const palette=['#197f65','#527cc2','#ca8b22','#965eaa','#c76566','#718747'];
+const color=code=>palette[topCodes.indexOf(code)]||'#bec8c0';
+const byCode=new Map(DATA.soil_stats.map(r=>[r.code,r]));
+let selected='all';
+document.getElementById('metrics').innerHTML=`<div class="metric"><span>พื้นที่รหัส A403 จากรูปทรงต้นฉบับ</span><strong>${fmt(DATA.summary.pure.rai)} ไร่</strong><span class="muted">${DATA.summary.pure.records.toLocaleString()} รูปแปลง ไม่ใช่จำนวนสวน</span></div><div class="metric"><span>พื้นที่รหัสปลูกผสมที่มีทุเรียน</span><strong>${fmt(DATA.summary.mixed.rai)} ไร่</strong><span class="muted">แยกไว้ ไม่ถือเป็นทุเรียนล้วน</span></div><div class="metric"><span>A403 ที่เชื่อมกับแผนที่ดินได้</span><strong>${pct(100*DATA.summary.pure.covered_rai/DATA.summary.pure.rai)}%</strong><span class="muted">ส่วนที่ไม่ซ้อนทับยังไม่ทราบหน่วยดิน</span></div>`;
+const sel=document.getElementById('soilSelect');
+for(const row of DATA.soil_stats){const o=document.createElement('option');o.value=row.code;o.textContent=`${row.code} — ${row.names.join(' / ')}`;sel.append(o)}
+document.getElementById('legend').innerHTML=topCodes.map(c=>`<span><i class="swatch" style="background:${color(c)}"></i>${esc(c)} ${esc(byCode.get(c).names.join('/'))}</span>`).join('')+'<span><i class="swatch" style="background:#bec8c0"></i>หน่วยอื่น</span>';
+function drawMap(id,features){
+ const svg=d3.select('#'+id),w=svg.node().clientWidth,h=svg.node().clientHeight;
+ svg.selectAll('*').remove();svg.attr('viewBox',`0 0 ${w} ${h}`);
+ const collection={type:'FeatureCollection',features:MAPS.districts};
+ const projection=d3.geoMercator().fitExtent([[18,28],[w-18,h-20]],collection),path=d3.geoPath(projection);
+ svg.append('text').attr('x',w-18).attr('y',21).attr('text-anchor','end').attr('font-size',12).text('เหนือ ↑');
+ svg.append('g').selectAll('path').data(MAPS.districts).join('path').attr('d',path).attr('fill','#f0f2ef').attr('stroke','#acb9af').attr('stroke-width',.65);
+ svg.append('g').selectAll('path').data(features).join('path').attr('d',path).attr('fill',d=>color(d.properties.code)).attr('opacity',d=>selected==='all'||selected===d.properties.code?1:.12).attr('stroke',d=>selected===d.properties.code?'#233e31':'none').attr('stroke-width',.4).append('title').text(d=>`${d.properties.code} ${byCode.get(d.properties.code)?.names.join(' / ')||''}`);
+ // Administrative boundaries remain visible above thematic layers.
+ svg.append('g').selectAll('path').data(MAPS.districts).join('path').attr('d',path).attr('fill','none').attr('stroke','#64796a').attr('stroke-width',.35).attr('pointer-events','none');
+}
+function drawBars(){
+ const s=d3.select('#bars'),w=s.node().clientWidth,h=s.node().clientHeight,rows=DATA.soil_stats.slice(0,8),left=w<500?104:170,right=85,top=12,bottom=48;
+ s.selectAll('*').remove();s.attr('viewBox',`0 0 ${w} ${h}`);
+ const x=d3.scaleLinear().domain([0,d3.max(rows,d=>d.pure_rai)]).nice().range([left,w-right]);
+ const y=d3.scaleBand().domain(rows.map(d=>d.code)).range([top,h-bottom]).padding(.27);
+ s.append('g').attr('transform',`translate(0,${h-bottom})`).call(d3.axisBottom(x).ticks(w<500?3:5).tickFormat(d3.format('~s')));
+ s.append('text').attr('x',(left+w-right)/2).attr('y',h-8).attr('text-anchor','middle').attr('font-size',13).text('พื้นที่ A403 ที่ซ้อนทับแผนที่ดิน (ไร่)');
+ for(const row of rows){s.append('rect').attr('x',left).attr('y',y(row.code)).attr('width',x(row.pure_rai)-left).attr('height',y.bandwidth()).attr('fill',color(row.code));s.append('text').attr('x',left-8).attr('y',y(row.code)+y.bandwidth()/2+5).attr('text-anchor','end').attr('font-size',13).text(w<500?row.code:`${row.names[0]} (${row.code})`);s.append('text').attr('x',x(row.pure_rai)+7).attr('y',y(row.code)+y.bandwidth()/2+5).attr('font-size',12).text(fmt(row.pure_rai));}
+}
+function drawTable(){const rows=selected==='all'?DATA.soil_stats:DATA.soil_stats.filter(r=>r.code===selected);document.getElementById('soilTable').innerHTML=rows.map(r=>`<tr><td>${esc(r.code)} — ${esc(r.names.join(' / '))}</td><td class="num">${fmt(r.pure_rai)}</td><td class="num">${fmt(r.mixed_rai)}</td><td>${esc(r.textures.join(' / ')||'ไม่ระบุ')}</td><td>${esc(r.ph.join(' / ')||'ไม่ระบุ')}</td></tr>`).join('')}
+function draw(){drawMap('soilMap',MAPS.soil);drawMap('cropMap',MAPS.crop.filter(f=>f.properties.kind==='pure'));drawBars();drawTable();const r=byCode.get(selected);document.getElementById('mapdetail').textContent=r?`${r.names.join(' / ')} (${r.code}): A403 ${fmt(r.pure_rai)} ไร่ · ความอุดมสมบูรณ์จากต้นทาง: ${r.fertility.join(' / ')||'ไม่ระบุ'}`:'เลือกชื่อชุดดินด้านบนเพื่อเน้นตำแหน่งและดูสมบัติจากต้นทาง เช่น ทุ่งหว้า (Tg)';}
+sel.addEventListener('change',()=>{selected=sel.value;draw()});document.getElementById('reset').addEventListener('click',()=>{selected='all';sel.value='all';draw()});
+document.getElementById('checks').innerHTML=[
+ `อ่านชั้นดิน ${DATA.soil_features} รายการ และชั้นการใช้ที่ดิน ${DATA.landuse_features.toLocaleString()} รายการจากไฟล์จริง`,
+ `A403 ที่ไม่ซ้อนกับแผนที่ดิน ${fmt(DATA.summary.pure.uncovered_rai)} ไร่ ไม่เติมชื่อดินให้เอง`,
+ `พื้นที่นับซ้ำจากการซ้อนของหน่วยดิน ${fmt(DATA.summary.pure.soil_overlap_rai)} ไร่ และจากการซ้อนกันของ A403 ${fmt(DATA.summary.pure.landuse_internal_overlap_rai)} ไร่ (เกณฑ์ตรวจไม่เกิน 0.1 ไร่)`,
+ `รูปทรงที่ต้องซ่อมเพื่อคำนวณ: ดิน ${DATA.repair_counts.soil||0} รายการ / การใช้ที่ดิน ${DATA.repair_counts.landuse||0} รายการ เก็บต้นฉบับเดิมไว้`,
+ 'พื้นที่คำนวณจากเรขาคณิตในระบบฉายแผนที่ ไม่ใช้ผลรวม Area_Rai ที่ต้นทางปัดเศษเป็นจำนวนเต็มในแต่ละรูปแปลง',
+ 'ขอบเขตดินกับการใช้ที่ดินคนละปี อาจมีความคลาดเคลื่อนตำแหน่งและการเปลี่ยนสภาพพื้นที่ รวมถึงค่าหรือชื่อที่ผิดในต้นทาง',
+ 'แผนที่นี้ไม่ได้ยืนยันว่าจุดติดเซนเซอร์ของผู้ใช้เป็นชุดดินทุ่งหว้า ต้องใช้พิกัดจริงตรวจแยก',
+ 'ยังไม่เชื่อมผลผลิตหรืออากาศ จึงยังจัดอันดับดินที่ให้ผลผลิตดีที่สุดหรือสร้างข้อสรุปเหตุและผลไม่ได้'
+].map(s=>`<li>${esc(s)}</li>`).join('');
+document.getElementById('hashes').innerHTML=DATA.archives.map(a=>`<p>${esc(a.file)} (${a.bytes.toLocaleString()} bytes)<br><code>${a.sha256}</code></p>`).join('');
+document.getElementById('codes').innerHTML=Object.entries(DATA.landuse_codes).map(([code,r])=>`<tr><td>${esc(code)}</td><td>${esc(r.description)}</td><td class="num">${r.records.toLocaleString()}</td><td class="num">${fmt(r.geometry_m2/1600)}</td></tr>`).join('');
+new ResizeObserver(draw).observe(document.getElementById('soilMap'));
+draw();
+</script></body></html>

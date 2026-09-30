@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [{
+    "label": "Durian: Open portfolio map server",
+    "type": "process",
+    "command": "${workspaceFolder}/.venv-portfolio/Scripts/python.exe",
+    "args": ["${workspaceFolder}/tools/serve_orchard_analysis.py"],
+    "options": {"cwd": "${workspaceFolder}"},
+    "problemMatcher": []
+  }]
+}

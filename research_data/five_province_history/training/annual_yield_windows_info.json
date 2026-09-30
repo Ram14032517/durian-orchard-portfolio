@@ -1,0 +1,30 @@
+{
+  "selected_window_by_validation": 6,
+  "anchors": {
+    "22": 5,
+    "33": 6,
+    "53": 7,
+    "84": 8,
+    "86": 8
+  },
+  "rows": 145,
+  "complete_rows": 145,
+  "split_counts": {
+    "train": 125,
+    "validation": 10,
+    "test": 10
+  },
+  "sources": {
+    "production_annual.csv": "c5eed63bddcb777afcbf4bb04e9f25cccdbf08d758636136a96730c884655b73",
+    "harvest_monthly.csv": "a1a04a1bcd4e37d1640a76a3fb733221563fcb5b00a43f6ce2046760bff7f739",
+    "weather_daily.csv": "28dfcab00a24086735a7a8b596a19c52334a5025a7c3abb0297ff2a663d21054"
+  },
+  "limits": [
+    "Annual provincial yield, all varieties; not monthly or orchard yield",
+    "Anchor is the highest total harvest month in available training records through 2021; not actual yearly phenology",
+    "Cumulative full calendar months BEFORE anchor, with day-weighted means and total rain",
+    "Province and linear year trend baseline; identical complete rows for every window",
+    "Validation 2022-2023 selects alpha/window; test 2024-2025 has only 10 province-years at most",
+    "Retrospective revised data; no causal claims or operational forecast validation"
+  ]
+}

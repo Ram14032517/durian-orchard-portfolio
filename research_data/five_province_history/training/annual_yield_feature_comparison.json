@@ -1,0 +1,1373 @@
+{
+  "method": "ridge; all variants contain province indicators and a linear year trend",
+  "target": "OAE provincial annual production tonnes × 1000 / bearing rai, all durian varieties",
+  "window_months": 6,
+  "rows": 145,
+  "split_counts": {
+    "train": 125,
+    "validation": 10,
+    "test": 10
+  },
+  "splits": {
+    "train": "1997–2021",
+    "validation": "2022–2023",
+    "test": "2024–2025"
+  },
+  "scores": [
+    {
+      "key": "baseline",
+      "label": "จังหวัด + แนวโน้มปี",
+      "alpha": 100.0,
+      "validation_mae_kg_rai": 297.5858301323834,
+      "test_mae_kg_rai": 182.5502133754421
+    },
+    {
+      "key": "temperature_c",
+      "label": "อุณหภูมิ",
+      "alpha": 1.0,
+      "validation_mae_kg_rai": 284.58479487367265,
+      "test_mae_kg_rai": 195.73177078982093
+    },
+    {
+      "key": "rain_mm",
+      "label": "ฝน",
+      "alpha": 100.0,
+      "validation_mae_kg_rai": 297.87713125200054,
+      "test_mae_kg_rai": 182.89913824681088
+    },
+    {
+      "key": "humidity_pct",
+      "label": "ความชื้นอากาศ",
+      "alpha": 1.0,
+      "validation_mae_kg_rai": 262.93045447122347,
+      "test_mae_kg_rai": 190.18414367336092
+    },
+    {
+      "key": "solar_mj_m2_day",
+      "label": "รังสีดวงอาทิตย์",
+      "alpha": 100.0,
+      "validation_mae_kg_rai": 294.5368657420591,
+      "test_mae_kg_rai": 177.304820595938
+    },
+    {
+      "key": "all_weather",
+      "label": "อากาศ 4 ค่า",
+      "alpha": 1.0,
+      "validation_mae_kg_rai": 240.03741338550793,
+      "test_mae_kg_rai": 211.95161309486284
+    }
+  ],
+  "yearly_context": [
+    {
+      "province_code": "22",
+      "year_ce": 1997,
+      "yield_kg_rai": 2076.998644785977,
+      "temperature_c": 25.010552486187844,
+      "rain_mm": 320.99,
+      "humidity_pct": 78.11988950276242,
+      "solar_mj_m2_day": 18.2521546961326
+    },
+    {
+      "province_code": "22",
+      "year_ce": 1998,
+      "yield_kg_rai": 1398.0008280593836,
+      "temperature_c": 27.11193370165746,
+      "rain_mm": 152.95,
+      "humidity_pct": 74.13447513812154,
+      "solar_mj_m2_day": 19.313314917127077
+    },
+    {
+      "province_code": "22",
+      "year_ce": 1999,
+      "yield_kg_rai": 1602.999348184121,
+      "temperature_c": 25.46651933701657,
+      "rain_mm": 456.34,
+      "humidity_pct": 78.32624309392264,
+      "solar_mj_m2_day": 17.26502762430939
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2000,
+      "yield_kg_rai": 1626.00081171826,
+      "temperature_c": 24.726373626373626,
+      "rain_mm": 369.68,
+      "humidity_pct": 79.55192307692307,
+      "solar_mj_m2_day": 17.5989010989011
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2001,
+      "yield_kg_rai": 1615.9997579330943,
+      "temperature_c": 25.323204419889503,
+      "rain_mm": 370.28,
+      "humidity_pct": 80.34546961325967,
+      "solar_mj_m2_day": 17.8878453038674
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2002,
+      "yield_kg_rai": 1643.9992112333516,
+      "temperature_c": 25.242817679558016,
+      "rain_mm": 194.99,
+      "humidity_pct": 77.33674033149171,
+      "solar_mj_m2_day": 18.139834254143643
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2003,
+      "yield_kg_rai": 1303.000040107488,
+      "temperature_c": 25.94022099447514,
+      "rain_mm": 284.74,
+      "humidity_pct": 77.96801104972376,
+      "solar_mj_m2_day": 17.871270718232047
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2004,
+      "yield_kg_rai": 1396.000443427377,
+      "temperature_c": 25.592912087912087,
+      "rain_mm": 199.21,
+      "humidity_pct": 74.99131868131869,
+      "solar_mj_m2_day": 18.443296703296703
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2005,
+      "yield_kg_rai": 1121.9986314325936,
+      "temperature_c": 26.022928176795578,
+      "rain_mm": 222.5,
+      "humidity_pct": 72.46922651933701,
+      "solar_mj_m2_day": 18.44513812154696
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2006,
+      "yield_kg_rai": 1163.9981566063304,
+      "temperature_c": 25.270607734806628,
+      "rain_mm": 384.36,
+      "humidity_pct": 80.49475138121547,
+      "solar_mj_m2_day": 17.40867403314917
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2007,
+      "yield_kg_rai": 1194.0004615785003,
+      "temperature_c": 25.71337016574586,
+      "rain_mm": 312.19,
+      "humidity_pct": 75.26381215469613,
+      "solar_mj_m2_day": 18.440883977900555
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2008,
+      "yield_kg_rai": 1271.999707835741,
+      "temperature_c": 25.41664835164835,
+      "rain_mm": 271.75,
+      "humidity_pct": 74.61208791208792,
+      "solar_mj_m2_day": 17.9356043956044
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2009,
+      "yield_kg_rai": 1260.0013923051931,
+      "temperature_c": 24.88911602209945,
+      "rain_mm": 350.6,
+      "humidity_pct": 77.87243093922652,
+      "solar_mj_m2_day": 17.58458563535911
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2010,
+      "yield_kg_rai": 1232.6405124848031,
+      "temperature_c": 26.26707182320442,
+      "rain_mm": 233.15,
+      "humidity_pct": 77.06276243093923,
+      "solar_mj_m2_day": 18.70972375690608
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2011,
+      "yield_kg_rai": 1328.0017489645068,
+      "temperature_c": 25.16767955801105,
+      "rain_mm": 311.03,
+      "humidity_pct": 76.21337016574586,
+      "solar_mj_m2_day": 17.06486187845304
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2012,
+      "yield_kg_rai": 1231.9988048999105,
+      "temperature_c": 25.584670329670335,
+      "rain_mm": 231.87,
+      "humidity_pct": 78.67543956043957,
+      "solar_mj_m2_day": 17.619890109890108
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2013,
+      "yield_kg_rai": 1344.0006243096575,
+      "temperature_c": 26.30900552486188,
+      "rain_mm": 420.01,
+      "humidity_pct": 79.17917127071823,
+      "solar_mj_m2_day": 17.631381215469613
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2014,
+      "yield_kg_rai": 1436.2387055413394,
+      "temperature_c": 24.8892817679558,
+      "rain_mm": 221.97,
+      "humidity_pct": 76.65751381215469,
+      "solar_mj_m2_day": 18.02806629834254
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2015,
+      "yield_kg_rai": 1387.7177757760835,
+      "temperature_c": 25.65917127071824,
+      "rain_mm": 224.94,
+      "humidity_pct": 75.77640883977901,
+      "solar_mj_m2_day": 18.17994475138121
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2016,
+      "yield_kg_rai": 1094.3146358986455,
+      "temperature_c": 26.76087912087912,
+      "rain_mm": 200.17,
+      "humidity_pct": 74.02653846153845,
+      "solar_mj_m2_day": 18.75604395604396
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2017,
+      "yield_kg_rai": 1622.4677716390424,
+      "temperature_c": 25.609558011049725,
+      "rain_mm": 393.55,
+      "humidity_pct": 79.79955801104973,
+      "solar_mj_m2_day": 17.752265193370167
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2018,
+      "yield_kg_rai": 1509.5797559873474,
+      "temperature_c": 25.265690607734808,
+      "rain_mm": 469.92,
+      "humidity_pct": 80.65248618784531,
+      "solar_mj_m2_day": 16.88309392265193
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2019,
+      "yield_kg_rai": 1751.2007548950223,
+      "temperature_c": 26.56110497237569,
+      "rain_mm": 242.01,
+      "humidity_pct": 76.9503867403315,
+      "solar_mj_m2_day": 18.63828729281768
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2020,
+      "yield_kg_rai": 1928.5329623479784,
+      "temperature_c": 26.571703296703294,
+      "rain_mm": 280.22,
+      "humidity_pct": 73.93054945054945,
+      "solar_mj_m2_day": 18.896813186813187
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2021,
+      "yield_kg_rai": 1842.8039691808733,
+      "temperature_c": 25.31088397790055,
+      "rain_mm": 455.29,
+      "humidity_pct": 79.11441988950276,
+      "solar_mj_m2_day": 18.33138121546961
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2022,
+      "yield_kg_rai": 2194.396012547389,
+      "temperature_c": 25.39906077348066,
+      "rain_mm": 422.5,
+      "humidity_pct": 81.47441988950276,
+      "solar_mj_m2_day": 17.652154696132598
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2023,
+      "yield_kg_rai": 1967.7139975442904,
+      "temperature_c": 25.633259668508288,
+      "rain_mm": 332.32,
+      "humidity_pct": 77.32193370165746,
+      "solar_mj_m2_day": 18.29
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2024,
+      "yield_kg_rai": 1519.5835718132034,
+      "temperature_c": 27.224670329670328,
+      "rain_mm": 164.35,
+      "humidity_pct": 76.15615384615384,
+      "solar_mj_m2_day": 18.373846153846152
+    },
+    {
+      "province_code": "22",
+      "year_ce": 2025,
+      "yield_kg_rai": 1713.7247196196297,
+      "temperature_c": 25.75480662983426,
+      "rain_mm": 329.71,
+      "humidity_pct": 75.23292817679558,
+      "solar_mj_m2_day": 18.26458563535912
+    },
+    {
+      "province_code": "33",
+      "year_ce": 1997,
+      "yield_kg_rai": 1195.6815114709852,
+      "temperature_c": 27.01714285714286,
+      "rain_mm": 353.91,
+      "humidity_pct": 62.00983516483517,
+      "solar_mj_m2_day": 19.949395604395605
+    },
+    {
+      "province_code": "33",
+      "year_ce": 1998,
+      "yield_kg_rai": 1192.8374655647383,
+      "temperature_c": 30.25972527472528,
+      "rain_mm": 279.55,
+      "humidity_pct": 51.91615384615385,
+      "solar_mj_m2_day": 20.760934065934062
+    },
+    {
+      "province_code": "33",
+      "year_ce": 1999,
+      "yield_kg_rai": 1517.126148705096,
+      "temperature_c": 26.906043956043955,
+      "rain_mm": 493.94,
+      "humidity_pct": 66.46675824175824,
+      "solar_mj_m2_day": 18.93318681318681
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2000,
+      "yield_kg_rai": 1509.0556274256146,
+      "temperature_c": 26.160874316939893,
+      "rain_mm": 626.57,
+      "humidity_pct": 67.74994535519124,
+      "solar_mj_m2_day": 19.14300546448088
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2001,
+      "yield_kg_rai": 1063.8578011849902,
+      "temperature_c": 28.06230769230769,
+      "rain_mm": 309.09,
+      "humidity_pct": 62.00038461538461,
+      "solar_mj_m2_day": 19.368296703296703
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2002,
+      "yield_kg_rai": 1098.7045033929674,
+      "temperature_c": 27.33763736263736,
+      "rain_mm": 260.07,
+      "humidity_pct": 62.79153846153846,
+      "solar_mj_m2_day": 19.837802197802198
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2003,
+      "yield_kg_rai": 854.9618320610687,
+      "temperature_c": 27.88516483516484,
+      "rain_mm": 423.05,
+      "humidity_pct": 61.754065934065935,
+      "solar_mj_m2_day": 19.61131868131868
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2004,
+      "yield_kg_rai": 537.9782981153627,
+      "temperature_c": 27.74765027322405,
+      "rain_mm": 342.58,
+      "humidity_pct": 58.57885245901638,
+      "solar_mj_m2_day": 19.23049180327869
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2005,
+      "yield_kg_rai": 449.936628643853,
+      "temperature_c": 28.433571428571423,
+      "rain_mm": 238.83,
+      "humidity_pct": 53.29115384615385,
+      "solar_mj_m2_day": 19.350054945054943
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2006,
+      "yield_kg_rai": 386.2571577303488,
+      "temperature_c": 27.681153846153848,
+      "rain_mm": 324.04,
+      "humidity_pct": 59.67247252747252,
+      "solar_mj_m2_day": 19.27758241758242
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2007,
+      "yield_kg_rai": 582.014987510408,
+      "temperature_c": 27.667582417582416,
+      "rain_mm": 377.85,
+      "humidity_pct": 59.76554945054946,
+      "solar_mj_m2_day": 19.53978021978022
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2008,
+      "yield_kg_rai": 618.9655172413793,
+      "temperature_c": 27.08213114754098,
+      "rain_mm": 367.32,
+      "humidity_pct": 60.381475409836064,
+      "solar_mj_m2_day": 19.402841530054648
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2009,
+      "yield_kg_rai": 517.3913043478261,
+      "temperature_c": 26.99324175824176,
+      "rain_mm": 391.5,
+      "humidity_pct": 62.28956043956045,
+      "solar_mj_m2_day": 19.224175824175827
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2010,
+      "yield_kg_rai": 603.8461538461538,
+      "temperature_c": 29.144010989010997,
+      "rain_mm": 248.76,
+      "humidity_pct": 55.76631868131869,
+      "solar_mj_m2_day": 19.767802197802197
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2011,
+      "yield_kg_rai": 833.0781010719755,
+      "temperature_c": 26.76796703296703,
+      "rain_mm": 313.47,
+      "humidity_pct": 60.11802197802198,
+      "solar_mj_m2_day": 18.814010989010992
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2012,
+      "yield_kg_rai": 816.6144200626959,
+      "temperature_c": 27.241038251366117,
+      "rain_mm": 343.02,
+      "humidity_pct": 62.90863387978143,
+      "solar_mj_m2_day": 19.217704918032787
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2013,
+      "yield_kg_rai": 907.6433121019109,
+      "temperature_c": 29.03274725274725,
+      "rain_mm": 296.05,
+      "humidity_pct": 56.81884615384616,
+      "solar_mj_m2_day": 19.561373626373623
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2014,
+      "yield_kg_rai": 1082.1982151244715,
+      "temperature_c": 27.072142857142858,
+      "rain_mm": 244.5,
+      "humidity_pct": 59.10379120879121,
+      "solar_mj_m2_day": 19.77516483516484
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2015,
+      "yield_kg_rai": 957.4368568755848,
+      "temperature_c": 28.150274725274727,
+      "rain_mm": 189.38,
+      "humidity_pct": 54.34846153846155,
+      "solar_mj_m2_day": 19.939835164835166
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2016,
+      "yield_kg_rai": 717.8329571106095,
+      "temperature_c": 29.090109289617484,
+      "rain_mm": 250.38,
+      "humidity_pct": 53.37683060109289,
+      "solar_mj_m2_day": 19.19737704918033
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2017,
+      "yield_kg_rai": 1130.2681992337166,
+      "temperature_c": 27.06098901098901,
+      "rain_mm": 525.6,
+      "humidity_pct": 66.8021978021978,
+      "solar_mj_m2_day": 19.21967032967033
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2018,
+      "yield_kg_rai": 1457.7218728162125,
+      "temperature_c": 27.01582417582417,
+      "rain_mm": 353.65,
+      "humidity_pct": 63.395,
+      "solar_mj_m2_day": 18.717692307692307
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2019,
+      "yield_kg_rai": 1105.8944482522274,
+      "temperature_c": 29.297087912087918,
+      "rain_mm": 326.83,
+      "humidity_pct": 58.11802197802199,
+      "solar_mj_m2_day": 19.343736263736265
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2020,
+      "yield_kg_rai": 1158.008658008658,
+      "temperature_c": 28.764918032786884,
+      "rain_mm": 258.79,
+      "humidity_pct": 56.15087431693989,
+      "solar_mj_m2_day": 19.592622950819678
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2021,
+      "yield_kg_rai": 1337.9446640316205,
+      "temperature_c": 26.87054945054945,
+      "rain_mm": 364.69,
+      "humidity_pct": 64.4745054945055,
+      "solar_mj_m2_day": 19.70620879120879
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2022,
+      "yield_kg_rai": 1347.7905073649754,
+      "temperature_c": 26.12313186813187,
+      "rain_mm": 639.33,
+      "humidity_pct": 70.95456043956044,
+      "solar_mj_m2_day": 18.696868131868133
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2023,
+      "yield_kg_rai": 1269.1893186444738,
+      "temperature_c": 27.587417582417583,
+      "rain_mm": 278.76,
+      "humidity_pct": 60.99236263736264,
+      "solar_mj_m2_day": 19.52956043956044
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2024,
+      "yield_kg_rai": 1067.8949164107812,
+      "temperature_c": 29.90196721311475,
+      "rain_mm": 364.47,
+      "humidity_pct": 56.64868852459017,
+      "solar_mj_m2_day": 19.37426229508197
+    },
+    {
+      "province_code": "33",
+      "year_ce": 2025,
+      "yield_kg_rai": 1370.8643430845184,
+      "temperature_c": 27.81016483516484,
+      "rain_mm": 319.22,
+      "humidity_pct": 56.62725274725275,
+      "solar_mj_m2_day": 19.4189010989011
+    },
+    {
+      "province_code": "53",
+      "year_ce": 1997,
+      "yield_kg_rai": 534.0025906735751,
+      "temperature_c": 25.33049723756906,
+      "rain_mm": 293.19,
+      "humidity_pct": 64.55099447513813,
+      "solar_mj_m2_day": 20.920662983425416
+    },
+    {
+      "province_code": "53",
+      "year_ce": 1998,
+      "yield_kg_rai": 442.9855244040252,
+      "temperature_c": 26.91033149171271,
+      "rain_mm": 432.1,
+      "humidity_pct": 60.41574585635359,
+      "solar_mj_m2_day": 21.394475138121543
+    },
+    {
+      "province_code": "53",
+      "year_ce": 1999,
+      "yield_kg_rai": 514.9763531266422,
+      "temperature_c": 25.01519337016574,
+      "rain_mm": 590.47,
+      "humidity_pct": 68.55022099447514,
+      "solar_mj_m2_day": 18.711933701657458
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2000,
+      "yield_kg_rai": 718.9886752699499,
+      "temperature_c": 24.368076923076927,
+      "rain_mm": 594.7,
+      "humidity_pct": 72.19032967032966,
+      "solar_mj_m2_day": 18.97956043956044
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2001,
+      "yield_kg_rai": 815.9788999395571,
+      "temperature_c": 25.04453038674033,
+      "rain_mm": 547.59,
+      "humidity_pct": 73.16591160220995,
+      "solar_mj_m2_day": 18.606077348066297
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2002,
+      "yield_kg_rai": 706.0190307590175,
+      "temperature_c": 25.05513812154696,
+      "rain_mm": 404.32,
+      "humidity_pct": 69.81458563535911,
+      "solar_mj_m2_day": 19.281491712707183
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2003,
+      "yield_kg_rai": 523.9823109196054,
+      "temperature_c": 25.333204419889505,
+      "rain_mm": 421.61,
+      "humidity_pct": 67.83215469613259,
+      "solar_mj_m2_day": 19.62232044198895
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2004,
+      "yield_kg_rai": 556.982432732933,
+      "temperature_c": 25.53027472527473,
+      "rain_mm": 580.26,
+      "humidity_pct": 64.38521978021978,
+      "solar_mj_m2_day": 18.887527472527477
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2005,
+      "yield_kg_rai": 577.9892201077989,
+      "temperature_c": 25.756243093922656,
+      "rain_mm": 438.23,
+      "humidity_pct": 63.694530386740325,
+      "solar_mj_m2_day": 18.762983425414365
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2006,
+      "yield_kg_rai": 531.0095296335933,
+      "temperature_c": 25.414254143646406,
+      "rain_mm": 605.87,
+      "humidity_pct": 67.49795580110498,
+      "solar_mj_m2_day": 19.083591160220998
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2007,
+      "yield_kg_rai": 559.9713569638382,
+      "temperature_c": 25.164917127071824,
+      "rain_mm": 482.73,
+      "humidity_pct": 65.65469613259668,
+      "solar_mj_m2_day": 18.945359116022097
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2008,
+      "yield_kg_rai": 583.9751472396608,
+      "temperature_c": 24.87203296703297,
+      "rain_mm": 473.11,
+      "humidity_pct": 66.12807692307692,
+      "solar_mj_m2_day": 18.337692307692304
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2009,
+      "yield_kg_rai": 521.9796561775029,
+      "temperature_c": 25.31745856353591,
+      "rain_mm": 490.13,
+      "humidity_pct": 66.38414364640883,
+      "solar_mj_m2_day": 18.80458563535912
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2010,
+      "yield_kg_rai": 545.9747323097841,
+      "temperature_c": 27.38088397790055,
+      "rain_mm": 271.54,
+      "humidity_pct": 58.087237569060775,
+      "solar_mj_m2_day": 19.70475138121547
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2011,
+      "yield_kg_rai": 428.9991938270183,
+      "temperature_c": 23.84895027624309,
+      "rain_mm": 684.3100000000001,
+      "humidity_pct": 73.86850828729283,
+      "solar_mj_m2_day": 17.79171270718232
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2012,
+      "yield_kg_rai": 588.9775795281137,
+      "temperature_c": 24.53818681318682,
+      "rain_mm": 555.35,
+      "humidity_pct": 74.90648351648352,
+      "solar_mj_m2_day": 18.68697802197802
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2013,
+      "yield_kg_rai": 622.9935678275482,
+      "temperature_c": 26.18093922651933,
+      "rain_mm": 372.75,
+      "humidity_pct": 64.41756906077347,
+      "solar_mj_m2_day": 19.471049723756902
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2014,
+      "yield_kg_rai": 603.036303630363,
+      "temperature_c": 25.28580110497237,
+      "rain_mm": 435.1,
+      "humidity_pct": 66.33259668508286,
+      "solar_mj_m2_day": 19.66453038674033
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2015,
+      "yield_kg_rai": 533.676909114482,
+      "temperature_c": 25.98939226519337,
+      "rain_mm": 291.48,
+      "humidity_pct": 62.26016574585636,
+      "solar_mj_m2_day": 19.66232044198895
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2016,
+      "yield_kg_rai": 241.5694319784588,
+      "temperature_c": 26.34912087912088,
+      "rain_mm": 419.08,
+      "humidity_pct": 57.85219780219779,
+      "solar_mj_m2_day": 19.240274725274727
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2017,
+      "yield_kg_rai": 923.234129518457,
+      "temperature_c": 24.8032044198895,
+      "rain_mm": 577.72,
+      "humidity_pct": 73.70662983425413,
+      "solar_mj_m2_day": 19.53060773480663
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2018,
+      "yield_kg_rai": 960.31023330298,
+      "temperature_c": 24.04397790055248,
+      "rain_mm": 568.37,
+      "humidity_pct": 76.57552486187846,
+      "solar_mj_m2_day": 18.64839779005525
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2019,
+      "yield_kg_rai": 648.0971705877345,
+      "temperature_c": 26.538121546961325,
+      "rain_mm": 335.63,
+      "humidity_pct": 66.29674033149172,
+      "solar_mj_m2_day": 19.791823204419888
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2020,
+      "yield_kg_rai": 559.5888039628219,
+      "temperature_c": 26.38071428571428,
+      "rain_mm": 451.82,
+      "humidity_pct": 64.66521978021977,
+      "solar_mj_m2_day": 19.657472527472528
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2021,
+      "yield_kg_rai": 691.1307491971984,
+      "temperature_c": 24.6678453038674,
+      "rain_mm": 516.81,
+      "humidity_pct": 73.21646408839779,
+      "solar_mj_m2_day": 19.475635359116023
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2022,
+      "yield_kg_rai": 798.9996340124436,
+      "temperature_c": 24.256740331491716,
+      "rain_mm": 567.07,
+      "humidity_pct": 76.94696132596684,
+      "solar_mj_m2_day": 18.96044198895028
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2023,
+      "yield_kg_rai": 850.0169090294218,
+      "temperature_c": 25.342928176795574,
+      "rain_mm": 285.58,
+      "humidity_pct": 68.26160220994475,
+      "solar_mj_m2_day": 19.928729281767957
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2024,
+      "yield_kg_rai": 806.0641951912827,
+      "temperature_c": 26.7239010989011,
+      "rain_mm": 509.95,
+      "humidity_pct": 66.52395604395605,
+      "solar_mj_m2_day": 19.188736263736264
+    },
+    {
+      "province_code": "53",
+      "year_ce": 2025,
+      "yield_kg_rai": 929.5418345357444,
+      "temperature_c": 24.820276243093925,
+      "rain_mm": 547.53,
+      "humidity_pct": 70.17480662983425,
+      "solar_mj_m2_day": 18.819834254143647
+    },
+    {
+      "province_code": "84",
+      "year_ce": 1997,
+      "yield_kg_rai": 1353.9805749502673,
+      "temperature_c": 26.95558011049724,
+      "rain_mm": 827.27,
+      "humidity_pct": 81.93325966850828,
+      "solar_mj_m2_day": 19.36110497237569
+    },
+    {
+      "province_code": "84",
+      "year_ce": 1998,
+      "yield_kg_rai": 1415.001269449784,
+      "temperature_c": 28.092983425414364,
+      "rain_mm": 651.8,
+      "humidity_pct": 78.45287292817679,
+      "solar_mj_m2_day": 20.06154696132597
+    },
+    {
+      "province_code": "84",
+      "year_ce": 1999,
+      "yield_kg_rai": 1185.9961420014213,
+      "temperature_c": 26.158729281767958,
+      "rain_mm": 1173.43,
+      "humidity_pct": 87.18944751381215,
+      "solar_mj_m2_day": 18.475248618784534
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2000,
+      "yield_kg_rai": 1386.0029074079569,
+      "temperature_c": 26.516043956043955,
+      "rain_mm": 860.57,
+      "humidity_pct": 84.78912087912089,
+      "solar_mj_m2_day": 18.775219780219786
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2001,
+      "yield_kg_rai": 1036.001223207584,
+      "temperature_c": 26.56375690607735,
+      "rain_mm": 1126.9,
+      "humidity_pct": 85.96475138121546,
+      "solar_mj_m2_day": 19.117458563535912
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2002,
+      "yield_kg_rai": 1328.9922564574647,
+      "temperature_c": 26.746408839779008,
+      "rain_mm": 626.75,
+      "humidity_pct": 83.57314917127071,
+      "solar_mj_m2_day": 20.202044198895027
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2003,
+      "yield_kg_rai": 898.0012475252895,
+      "temperature_c": 26.99425414364641,
+      "rain_mm": 751.61,
+      "humidity_pct": 82.89099447513813,
+      "solar_mj_m2_day": 19.576906077348067
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2004,
+      "yield_kg_rai": 1136.9929429510316,
+      "temperature_c": 26.8478021978022,
+      "rain_mm": 847.69,
+      "humidity_pct": 83.61346153846154,
+      "solar_mj_m2_day": 19.3160989010989
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2005,
+      "yield_kg_rai": 889.9879695227911,
+      "temperature_c": 27.266795580110497,
+      "rain_mm": 693.01,
+      "humidity_pct": 80.79933701657458,
+      "solar_mj_m2_day": 19.72370165745856
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2006,
+      "yield_kg_rai": 918.0093591503908,
+      "temperature_c": 26.708508287292812,
+      "rain_mm": 967.3,
+      "humidity_pct": 85.33922651933702,
+      "solar_mj_m2_day": 18.499834254143643
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2007,
+      "yield_kg_rai": 1049.9931815082505,
+      "temperature_c": 26.86624309392265,
+      "rain_mm": 875.94,
+      "humidity_pct": 83.26795580110497,
+      "solar_mj_m2_day": 19.0492817679558
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2008,
+      "yield_kg_rai": 1002.994572337638,
+      "temperature_c": 26.3843956043956,
+      "rain_mm": 954.21,
+      "humidity_pct": 84.81967032967033,
+      "solar_mj_m2_day": 18.242802197802195
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2009,
+      "yield_kg_rai": 1173.0144287014168,
+      "temperature_c": 26.70524861878453,
+      "rain_mm": 984.85,
+      "humidity_pct": 85.2811049723757,
+      "solar_mj_m2_day": 19.106243093922654
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2010,
+      "yield_kg_rai": 1037.9939209726444,
+      "temperature_c": 27.72193370165746,
+      "rain_mm": 740.91,
+      "humidity_pct": 79.81933701657458,
+      "solar_mj_m2_day": 19.92806629834254
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2011,
+      "yield_kg_rai": 741.998737079996,
+      "temperature_c": 26.371767955801104,
+      "rain_mm": 1526.22,
+      "humidity_pct": 86.49226519337016,
+      "solar_mj_m2_day": 18.383922651933705
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2012,
+      "yield_kg_rai": 1167.013295699324,
+      "temperature_c": 26.67456043956044,
+      "rain_mm": 1053.91,
+      "humidity_pct": 85.5976923076923,
+      "solar_mj_m2_day": 19.31291208791209
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2013,
+      "yield_kg_rai": 1282.018422106528,
+      "temperature_c": 26.905801104972376,
+      "rain_mm": 1118.93,
+      "humidity_pct": 84.22895027624308,
+      "solar_mj_m2_day": 18.67977900552486
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2014,
+      "yield_kg_rai": 1219.8473282442749,
+      "temperature_c": 27.276906077348062,
+      "rain_mm": 793.79,
+      "humidity_pct": 80.21635359116021,
+      "solar_mj_m2_day": 20.117513812154694
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2015,
+      "yield_kg_rai": 1212.099156569765,
+      "temperature_c": 27.20585635359116,
+      "rain_mm": 613.53,
+      "humidity_pct": 80.8132044198895,
+      "solar_mj_m2_day": 20.055690607734807
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2016,
+      "yield_kg_rai": 978.2416936195236,
+      "temperature_c": 27.647527472527475,
+      "rain_mm": 748.35,
+      "humidity_pct": 80.02642857142857,
+      "solar_mj_m2_day": 19.88983516483516
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2017,
+      "yield_kg_rai": 795.3192439351094,
+      "temperature_c": 26.85872928176796,
+      "rain_mm": 931.54,
+      "humidity_pct": 84.8125414364641,
+      "solar_mj_m2_day": 18.98867403314917
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2018,
+      "yield_kg_rai": 899.8616579759498,
+      "temperature_c": 26.99060773480663,
+      "rain_mm": 1000.52,
+      "humidity_pct": 83.01519337016573,
+      "solar_mj_m2_day": 19.30613259668508
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2019,
+      "yield_kg_rai": 1173.8261738261738,
+      "temperature_c": 27.56696132596685,
+      "rain_mm": 698.44,
+      "humidity_pct": 81.38348066298343,
+      "solar_mj_m2_day": 20.68988950276243
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2020,
+      "yield_kg_rai": 961.6520614152856,
+      "temperature_c": 27.62362637362637,
+      "rain_mm": 1078.98,
+      "humidity_pct": 80.35203296703297,
+      "solar_mj_m2_day": 20.026153846153846
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2021,
+      "yield_kg_rai": 1010.066897545656,
+      "temperature_c": 26.90486187845304,
+      "rain_mm": 892.46,
+      "humidity_pct": 83.9007182320442,
+      "solar_mj_m2_day": 19.979613259668508
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2022,
+      "yield_kg_rai": 719.076881872424,
+      "temperature_c": 27.016685082872925,
+      "rain_mm": 1680.99,
+      "humidity_pct": 85.65453038674032,
+      "solar_mj_m2_day": 18.59524861878453
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2023,
+      "yield_kg_rai": 1033.1888976832165,
+      "temperature_c": 27.31082872928177,
+      "rain_mm": 796.27,
+      "humidity_pct": 83.0207182320442,
+      "solar_mj_m2_day": 19.636629834254148
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2024,
+      "yield_kg_rai": 855.6481181253586,
+      "temperature_c": 28.43983516483516,
+      "rain_mm": 654.95,
+      "humidity_pct": 79.0143956043956,
+      "solar_mj_m2_day": 19.790164835164838
+    },
+    {
+      "province_code": "84",
+      "year_ce": 2025,
+      "yield_kg_rai": 933.27107167873,
+      "temperature_c": 27.18038674033149,
+      "rain_mm": 954.41,
+      "humidity_pct": 84.6335359116022,
+      "solar_mj_m2_day": 19.16889502762431
+    },
+    {
+      "province_code": "86",
+      "year_ce": 1997,
+      "yield_kg_rai": 1281.9969603463362,
+      "temperature_c": 27.407624309392265,
+      "rain_mm": 1003.62,
+      "humidity_pct": 75.75116022099448,
+      "solar_mj_m2_day": 19.105745856353597
+    },
+    {
+      "province_code": "86",
+      "year_ce": 1998,
+      "yield_kg_rai": 1310.0065577280818,
+      "temperature_c": 28.76906077348066,
+      "rain_mm": 615.7,
+      "humidity_pct": 71.81895027624309,
+      "solar_mj_m2_day": 20.19977900552486
+    },
+    {
+      "province_code": "86",
+      "year_ce": 1999,
+      "yield_kg_rai": 1260.0063673989175,
+      "temperature_c": 25.96099447513813,
+      "rain_mm": 1239.69,
+      "humidity_pct": 85.49270718232044,
+      "solar_mj_m2_day": 18.306187845303867
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2000,
+      "yield_kg_rai": 1396.0006797711435,
+      "temperature_c": 26.22554945054945,
+      "rain_mm": 1166.3,
+      "humidity_pct": 83.58373626373626,
+      "solar_mj_m2_day": 18.611703296703297
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2001,
+      "yield_kg_rai": 1257.0042089626145,
+      "temperature_c": 26.374640883977904,
+      "rain_mm": 1357.77,
+      "humidity_pct": 84.90983425414365,
+      "solar_mj_m2_day": 18.484917127071824
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2002,
+      "yield_kg_rai": 1212.004052157588,
+      "temperature_c": 27.31027624309392,
+      "rain_mm": 853.32,
+      "humidity_pct": 78.31701657458564,
+      "solar_mj_m2_day": 19.56486187845304
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2003,
+      "yield_kg_rai": 907.0019293072696,
+      "temperature_c": 26.952707182320434,
+      "rain_mm": 792.63,
+      "humidity_pct": 81.20220994475139,
+      "solar_mj_m2_day": 19.205082872928177
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2004,
+      "yield_kg_rai": 1021.0043097016564,
+      "temperature_c": 27.44203296703297,
+      "rain_mm": 908.72,
+      "humidity_pct": 76.97697802197801,
+      "solar_mj_m2_day": 19.22291208791209
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2005,
+      "yield_kg_rai": 826.0034966925614,
+      "temperature_c": 28.02685082872928,
+      "rain_mm": 761.9,
+      "humidity_pct": 74.26613259668507,
+      "solar_mj_m2_day": 19.369060773480665
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2006,
+      "yield_kg_rai": 677.0033551281008,
+      "temperature_c": 26.870441988950272,
+      "rain_mm": 1121.65,
+      "humidity_pct": 81.80878453038673,
+      "solar_mj_m2_day": 18.430441988950275
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2007,
+      "yield_kg_rai": 1175.002639822604,
+      "temperature_c": 27.33801104972376,
+      "rain_mm": 1215.04,
+      "humidity_pct": 77.75988950276243,
+      "solar_mj_m2_day": 18.93342541436464
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2008,
+      "yield_kg_rai": 871.9971564556259,
+      "temperature_c": 26.6839010989011,
+      "rain_mm": 1294.2,
+      "humidity_pct": 80.71302197802198,
+      "solar_mj_m2_day": 17.936923076923076
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2009,
+      "yield_kg_rai": 1100.0035837155965,
+      "temperature_c": 26.874806629834254,
+      "rain_mm": 1441.37,
+      "humidity_pct": 81.69552486187845,
+      "solar_mj_m2_day": 18.98475138121547
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2010,
+      "yield_kg_rai": 605.0024243644049,
+      "temperature_c": 28.277071823204423,
+      "rain_mm": 812.6,
+      "humidity_pct": 74.52099447513812,
+      "solar_mj_m2_day": 20.231546961325964
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2011,
+      "yield_kg_rai": 515.0023871607477,
+      "temperature_c": 26.24337016574585,
+      "rain_mm": 1611.39,
+      "humidity_pct": 84.77668508287294,
+      "solar_mj_m2_day": 18.361381215469613
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2012,
+      "yield_kg_rai": 1017.9957624374312,
+      "temperature_c": 26.521538461538466,
+      "rain_mm": 1371.09,
+      "humidity_pct": 84.47362637362637,
+      "solar_mj_m2_day": 19.19104395604396
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2013,
+      "yield_kg_rai": 1170.995631094807,
+      "temperature_c": 26.90226519337016,
+      "rain_mm": 1421.55,
+      "humidity_pct": 82.26640883977902,
+      "solar_mj_m2_day": 18.78740331491713
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2014,
+      "yield_kg_rai": 1204.9156150099252,
+      "temperature_c": 27.81132596685083,
+      "rain_mm": 1379.52,
+      "humidity_pct": 75.3439226519337,
+      "solar_mj_m2_day": 19.912486187845303
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2015,
+      "yield_kg_rai": 992.7514273866864,
+      "temperature_c": 27.530220994475133,
+      "rain_mm": 937.3,
+      "humidity_pct": 77.0132044198895,
+      "solar_mj_m2_day": 19.694917127071825
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2016,
+      "yield_kg_rai": 1075.1041257367388,
+      "temperature_c": 28.00406593406594,
+      "rain_mm": 952.96,
+      "humidity_pct": 75.50686813186815,
+      "solar_mj_m2_day": 19.74653846153846
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2017,
+      "yield_kg_rai": 872.7456057932488,
+      "temperature_c": 26.61425414364641,
+      "rain_mm": 1359.83,
+      "humidity_pct": 84.16513812154697,
+      "solar_mj_m2_day": 18.588342541436464
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2018,
+      "yield_kg_rai": 1051.4398679356798,
+      "temperature_c": 26.920055248618784,
+      "rain_mm": 1487.94,
+      "humidity_pct": 81.82872928176796,
+      "solar_mj_m2_day": 18.592265193370164
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2019,
+      "yield_kg_rai": 1759.6383519289377,
+      "temperature_c": 27.623756906077347,
+      "rain_mm": 985.46,
+      "humidity_pct": 79.25441988950277,
+      "solar_mj_m2_day": 20.18950276243094
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2020,
+      "yield_kg_rai": 1608.6624047961338,
+      "temperature_c": 27.88626373626373,
+      "rain_mm": 1103.2,
+      "humidity_pct": 76.61,
+      "solar_mj_m2_day": 19.750164835164835
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2021,
+      "yield_kg_rai": 1658.340405832883,
+      "temperature_c": 27.149779005524856,
+      "rain_mm": 1280.19,
+      "humidity_pct": 80.26646408839778,
+      "solar_mj_m2_day": 19.26524861878453
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2022,
+      "yield_kg_rai": 1208.6184481426476,
+      "temperature_c": 26.513314917127072,
+      "rain_mm": 1859.99,
+      "humidity_pct": 86.32828729281766,
+      "solar_mj_m2_day": 18.09475138121547
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2023,
+      "yield_kg_rai": 1224.117095342881,
+      "temperature_c": 28.00138121546961,
+      "rain_mm": 1002.56,
+      "humidity_pct": 76.21331491712708,
+      "solar_mj_m2_day": 19.532762430939226
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2024,
+      "yield_kg_rai": 990.8252868737756,
+      "temperature_c": 28.99016483516484,
+      "rain_mm": 974.94,
+      "humidity_pct": 73.60357142857144,
+      "solar_mj_m2_day": 19.31120879120879
+    },
+    {
+      "province_code": "86",
+      "year_ce": 2025,
+      "yield_kg_rai": 1158.093655902814,
+      "temperature_c": 27.15530386740332,
+      "rain_mm": 1287.53,
+      "humidity_pct": 82.68171270718231,
+      "solar_mj_m2_day": 18.06281767955801
+    }
+  ],
+  "limits": [
+    "Feature comparison is exploratory. The same small 2024–2025 test set is viewed across variants; do not tune a final model on it.",
+    "NASA POWER is a province reference-point grid, not orchard weather; no district/soil/yield join.",
+    "No verified fruit-drop, irrigation, disease, storm gust, tree-stage or cultivar labels.",
+    "Prediction accuracy or a variable association cannot establish why yield changed."
+  ]
+}
